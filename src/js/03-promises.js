@@ -33,8 +33,6 @@ function onPromiseCreate(e) {
   let inputAmount = Number(amount.value);
 
   for (let i = 1; i <= inputAmount; i += 1) {
-    inputDelay += inputStep;
-
     createPromise(i, inputDelay)
       .then(({ position, delay }) => {
         Notify.success(
@@ -48,6 +46,7 @@ function onPromiseCreate(e) {
           options
         );
       });
+    inputDelay += inputStep;
     e.currentTarget.reset();
   }
 }
